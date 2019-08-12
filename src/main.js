@@ -62,7 +62,7 @@ void main()
 }
 
 function lutFilter ({ canvas, filterImage, image }) {
-  const gl = canvas.getContext('webgl')
+  const gl = canvas.getContext('webgl', { preserveDrawingBuffer: true })
   const program = createWebglProgram(gl, [vertexShader, fragmentShader])
 
   const positionLocation = gl.getAttribLocation(program, 'a_position')
