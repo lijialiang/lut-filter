@@ -1,8 +1,8 @@
 {
   "name": "webgl-lut-filter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "webgl-lut-filter.js",
   "scripts": {
     "start": "cross-env NODE_ENV=test rollup -c -w",
     "build": "rollup -c"

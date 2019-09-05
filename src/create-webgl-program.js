@@ -1,4 +1,4 @@
-function createWebglProgram(gl, shaderObjects) {
+function createWebglProgram (gl, shaderObjects) {
   const shaders = []
 
   for (var i = 0; i < shaderObjects.length; ++i) {
