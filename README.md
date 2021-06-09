@@ -1,6 +1,6 @@
 # webgl-lut-filter &middot; [![npm version](https://img.shields.io/npm/v/webgl-lut-filter?style=flat)](https://www.npmjs.com/package/webgl-lut-filter)
 
-Use WebGL to render images based on LUT filter images.
+Use WebGL to render images based on LUT filter images([example](./__test__/filter.png)).
 
 [Playground](https://webgl-lut-filter.stackblitz.io/)
 
