@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="maximum-scale=1, width=device-width, initial-scale=1, user-scalable=0">
+  <title>WebGL LUT Filter Playground</title>
+  <meta name="description" content="Use WebGL to render images based on LUT filter images">
+  <meta name="keywords" content="webgl, lut, filter, playground">
+</head>
+<body>
+  <style>
+    #canvas {
+      max-width: 700px;
+      max-height: 700px;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/webgl-lut-filter/webgl-lut-filter.js"></script>
+
+  <p>Select Render Image: <input type="file" id="renderInput" accept="image/*"/></p>
+  <p>Select LUT Image: <input type="file" id="lutInput" accept="image/*"/></p>
+  <p><button onclick="render()">Render</button></p>
+  <p><canvas id="canvas"></canvas></p>
+  <script>
+    const renderInputElement = document.querySelector('#renderInput')
+    const lutInputElement = document.querySelector('#lutInput')
+    const canvasElement = document.querySelector('#canvas')
+
+    async function render () {
+      if (renderInputElement.files.length !== 1) {
+        alert('Please select render picture')
+        return
+      }
+      if (lutInputElement.files.length !== 1) {
+        alert('Please select lut picture')
+        return
+      }
+      const renderSrc = window.webkitURL.createObjectURL(renderInputElement.files[0])
+      const renderImage = new Image()
+      renderImage.src = renderSrc
+      await new Promise(resolve => renderImage.onload = resolve)
+
+      const lutSrc = window.webkitURL.createObjectURL(lutInputElement.files[0])
+      const lutImage = new Image()
+      lutImage.src = lutSrc
+      await new Promise(resolve => lutImage.onload = resolve)
+
+      window.lutFilter({
+        canvas: canvasElement,
+        image: renderImage,
+        filterImage: lutImage
+      })
+    }
+  </script>
+</body>
+</html>

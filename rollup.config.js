@@ -4,28 +4,30 @@ import { terser } from 'rollup-plugin-terser'
 import banner from 'rollup-plugin-banner'
 import babel from 'rollup-plugin-babel'
 
-const testEnv = process.env.NODE_ENV === 'test'
+const TEST_DIR = '__test__'
+const IS_TEST_ENV = process.env.NODE_ENV === 'test'
+const DIST_FILE_NAME = 'webgl-lut-filter.js'
 
 export default {
   input: 'src/main.js',
   output: {
-    file: testEnv ? 'test/main.js' : 'webgl-lut-filter.js',
+    file: IS_TEST_ENV ? `${TEST_DIR}/${DIST_FILE_NAME}` : DIST_FILE_NAME,
     format: 'umd',
     name: 'lutFilter',
-    sourcemap: !!testEnv
+    sourcemap: !!IS_TEST_ENV
   },
   plugins: [
     babel({
       babelrc: false,
 		  presets: [['@babel/env', { modules: false }]],
     }),
-    testEnv && serve('test'),
-    testEnv && livereload({
+    IS_TEST_ENV && serve(TEST_DIR),
+    IS_TEST_ENV && livereload({
       delay: 500,
-      watch: 'test',
+      watch: TEST_DIR,
       verbose: false,
     }),
-    !testEnv && terser(),
-    !testEnv && banner('v<%= pkg.version %>')
+    !IS_TEST_ENV && terser(),
+    !IS_TEST_ENV && banner('v<%= pkg.version %>')
   ]
 }

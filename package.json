@@ -1,17 +1,25 @@
 {
   "name": "webgl-lut-filter",
-  "version": "1.0.1",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Use WebGL to render images based on LUT filter images",
+  "keywords": [
+    "webgl",
+    "lut",
+    "filter"
+  ],
   "main": "webgl-lut-filter.js",
+  "files": [
+    "webgl-lut-filter.js"
+  ],
   "scripts": {
     "start": "cross-env NODE_ENV=test rollup -c -w",
-    "build": "rollup -c"
+    "prepack": "rollup -c"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lijialiang/webgl-lut-filter.git"
   },
-  "author": "lijialiang",
+  "author": "hello@lijialiang.io",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lijialiang/webgl-lut-filter/issues"
@@ -21,6 +29,7 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "cross-env": "^5.2.0",
+    "rollup": "^2.51.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-banner": "^0.2.1",
     "rollup-plugin-livereload": "^1.0.1",
