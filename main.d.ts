@@ -4,7 +4,7 @@ declare const _default: ({ canvas, filterImage, image }: {
     image: HTMLImageElement;
 }) => void;
 /**
- * Render images based on LUT filter image.
+ * Render image based on LUT filter image.
  * @param {Object} options
  * @param {HTMLCanvasElement} options.canvas
  * @param {HTMLImageElement} options.filterImage

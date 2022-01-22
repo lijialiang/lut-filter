@@ -1,6 +1,6 @@
 # WebGL LUT Filter ![](https://img.shields.io/npm/v/webgl-lut-filter?style=flat-square)
 
-Use `WebGL` to render image based on LUT filter image([example](./__test__/filter.png)).
+Rendering image with LUT filter effect.
 
 [Playground](https://jsbin.com/tipidur)
 

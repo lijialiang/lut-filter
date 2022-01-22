@@ -1,6 +1,6 @@
 {
   "name": "webgl-lut-filter",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Use WebGL to render image based on LUT filter image",
   "keywords": [
     "webgl",
