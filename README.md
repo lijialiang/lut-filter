@@ -4,14 +4,6 @@ Rendering image with LUT filter effect.
 
 ## Install
 
-### CDN
-
-```html
-<script src="https://unpkg.com/lut-filter/lut-filter.js"></script>
-```
-
-### NPM
-
 ```sh
 # yarn
 yarn add lut-filter
@@ -48,6 +40,8 @@ lutFilter({
 ```
 
 [Playground](https://jsbin.com/daxexom)
+
+## WebGPU vs WebGL
 
 ![](docs/webgpu-vs-webgl.png)
 
