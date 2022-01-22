@@ -5,14 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="maximum-scale=1, width=device-width, initial-scale=1, user-scalable=0">
   <title>WebGL LUT Filter Playground</title>
-  <meta name="description" content="Use WebGL to render images based on LUT filter images">
+  <meta name="description" content="Use WebGL to render image based on LUT filter image">
   <meta name="keywords" content="webgl, lut, filter, playground">
 </head>
 <body>
   <style>
     #canvas {
-      max-width: 700px;
-      max-height: 700px;
+      max-width: 100%;
+      max-height: 100%;
     }
   </style>
 
@@ -22,6 +22,7 @@
   <p>Select LUT Image: <input type="file" id="lutInput" accept="image/*"/></p>
   <p><button onclick="render()">Render</button></p>
   <p><canvas id="canvas"></canvas></p>
+
   <script>
     const renderInputElement = document.querySelector('#renderInput')
     const lutInputElement = document.querySelector('#lutInput')
@@ -32,10 +33,12 @@
         alert('Please select render picture')
         return
       }
+
       if (lutInputElement.files.length !== 1) {
         alert('Please select lut picture')
         return
       }
+
       const renderSrc = window.webkitURL.createObjectURL(renderInputElement.files[0])
       const renderImage = new Image()
       renderImage.src = renderSrc
