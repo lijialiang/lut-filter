@@ -9,7 +9,6 @@ import commonjs from '@rollup/plugin-commonjs'
 
 const TEST_DIR = '__test__'
 const IS_TEST_ENV = process.env.NODE_ENV === 'test'
-const DIST_FILE_NAME = 'webgl-lut-filter.js'
 
 const plugins = [
   resolve({ jsnext: true, preferBuiltins: true, browser: true }),
@@ -44,13 +43,25 @@ const plugins = [
   !IS_TEST_ENV && banner('<%= pkg.homepage %> v<%= pkg.version %>')
 ]
 
-export default {
-  input: 'src/main.ts',
-  output: {
-    file: IS_TEST_ENV ? `${TEST_DIR}/${DIST_FILE_NAME}` : DIST_FILE_NAME,
-    format: 'umd',
-    name: 'lutFilter',
-    sourcemap: !!IS_TEST_ENV
+export default [
+  {
+    input: 'src/webgl.ts',
+    output: {
+      file: IS_TEST_ENV ? `${TEST_DIR}/webgl.js` : 'webgl.js',
+      format: 'umd',
+      name: 'lutFilter',
+      sourcemap: !!IS_TEST_ENV
+    },
+    plugins
   },
-  plugins
-}
+  {
+    input: 'src/webgpu.ts',
+    output: {
+      file: IS_TEST_ENV ? `${TEST_DIR}/webgpu.js` : 'webgpu.js',
+      format: 'umd',
+      name: 'lutFilter',
+      sourcemap: !!IS_TEST_ENV
+    },
+    plugins
+  }
+]

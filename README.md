@@ -1,30 +1,30 @@
-# WebGL LUT Filter ![](https://img.shields.io/npm/v/webgl-lut-filter?style=flat-square)
+# LUT Filter ![](https://img.shields.io/npm/v/lut-filter?style=flat-square)
 
 Rendering image with LUT filter effect.
-
-[Playground](https://jsbin.com/tipidur)
 
 ## Install
 
 ### CDN
 
 ```html
-<script src="https://unpkg.com/webgl-lut-filter/webgl-lut-filter.js"></script>
+<script src="https://unpkg.com/lut-filter/lut-filter.js"></script>
 ```
 
 ### NPM
 
 ```sh
 # yarn
-yarn add webgl-lut-filter
+yarn add lut-filter
 # npm
-npm install webgl-lut-filter
+npm install lut-filter
 ```
 
 ## Usage
 
+### WebGL
+
 ```js
-import lutFilter from 'webgl-lut-filter'
+import lutFilter from 'lut-filter/webgl'
 
 lutFilter({
   canvas: <HTMLCanvasElement>,
@@ -32,6 +32,24 @@ lutFilter({
   filterImage: <HTMLImageElement>
 })
 ```
+
+[Playground](https://jsbin.com/gixozet)
+
+### WebGPU
+
+```js
+import lutFilter from 'lut-filter/webgpu'
+
+lutFilter({
+  canvas: <HTMLCanvasElement>,
+  image: <HTMLImageElement>,
+  filterImage: <HTMLImageElement>
+})
+```
+
+[Playground](https://jsbin.com/daxexom)
+
+![](docs/webgpu-vs-webgl.png)
 
 ## LICENSE
 

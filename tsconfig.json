@@ -7,7 +7,11 @@
     ],
     "skipLibCheck": true,
     "strict": true,
-    "declaration": true
+    "declaration": true,
+    "typeRoots": [
+      "./node_modules/@webgpu/types",
+      "./node_modules/@types"
+    ]
   },
   "include": [
     "./src/*.ts"

@@ -1,0 +1,27 @@
+<style type="text/css">
+  canvas {
+    max-width: 100%;
+  }
+</style>
+
+<canvas id="canvas"></canvas>
+
+<script src="webgpu.js"></script>
+
+<script>
+;(async () => {
+  const filterImage = new Image()
+  filterImage.src = 'filter.png'
+  await new Promise(resolve => filterImage.onload = resolve)
+
+  const image = new Image()
+  image.src = 'image.jpg'
+  await new Promise(resolve => image.onload = resolve)
+
+  lutFilter({
+    canvas: document.getElementById('canvas'),
+    image,
+    filterImage,
+  })
+})()
+</script>

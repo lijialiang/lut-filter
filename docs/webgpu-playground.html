@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="maximum-scale=1, width=device-width, initial-scale=1, user-scalable=0">
-  <title>WebGL LUT Filter Playground</title>
-  <meta name="description" content="Use WebGL to render image based on LUT filter image">
-  <meta name="keywords" content="webgl, lut, filter, playground">
+  <title>WebGPU LUT Filter Playground</title>
+  <meta name="description" content="Use WebGPU to render images based on LUT filter images">
+  <meta name="keywords" content="webgpu, lut, filter, playground">
 </head>
 <body>
   <style>
@@ -16,13 +16,12 @@
     }
   </style>
 
-  <script src="https://cdn.jsdelivr.net/npm/webgl-lut-filter/webgl-lut-filter.js"></script>
+  <script src="https://unpkg.com/lut-filter/webgpu.js"></script>
 
   <p>Select Render Image: <input type="file" id="renderInput" accept="image/*"/></p>
   <p>Select LUT Image: <input type="file" id="lutInput" accept="image/*"/></p>
   <p><button onclick="render()">Render</button></p>
   <p><canvas id="canvas"></canvas></p>
-
   <script>
     const renderInputElement = document.querySelector('#renderInput')
     const lutInputElement = document.querySelector('#lutInput')
